@@ -1,7 +1,10 @@
 """Classes for melon orders."""
 
+class AbstractMelonOrder():
+    """An abstract base class that other Melon Orders inherit from."""
 
-class DomesticMelonOrder():
+
+class DomesticMelonOrder(AbstractMelonOrder):
     """A melon order within the USA."""
 
     def __init__(self, species, qty):
@@ -27,7 +30,7 @@ class DomesticMelonOrder():
         self.shipped = True
 
 
-class InternationalMelonOrder():
+class InternationalMelonOrder(AbstractMelonOrder):
     """An international (non-US) melon order."""
 
     def __init__(self, species, qty, country_code):
