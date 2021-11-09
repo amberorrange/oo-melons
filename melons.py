@@ -2,6 +2,20 @@
 
 class AbstractMelonOrder():
     """An abstract base class that other Melon Orders inherit from."""
+    shipped = False
+
+    def __init__(self, species, qty):
+        self.species = species
+        self.qty = qty
+
+    
+    def get_total(self):
+        """Calculate price, including tax."""
+
+        base_price = 5
+        total = (1 + self.tax) * self.qty * base_price
+
+        return total
 
 
 class DomesticMelonOrder(AbstractMelonOrder):
@@ -12,17 +26,11 @@ class DomesticMelonOrder(AbstractMelonOrder):
 
         self.species = species
         self.qty = qty
-        self.shipped = False
+        # self.shipped = False
         self.order_type = "domestic"
         self.tax = 0.08
 
-    def get_total(self):
-        """Calculate price, including tax."""
-
-        base_price = 5
-        total = (1 + self.tax) * self.qty * base_price
-
-        return total
+   
 
     def mark_shipped(self):
         """Record the fact than an order has been shipped."""
@@ -39,17 +47,17 @@ class InternationalMelonOrder(AbstractMelonOrder):
         self.species = species
         self.qty = qty
         self.country_code = country_code
-        self.shipped = False
+        # self.shipped = False
         self.order_type = "international"
         self.tax = 0.17
 
-    def get_total(self):
-        """Calculate price, including tax."""
+    # def get_total(self):
+    #     """Calculate price, including tax."""
 
-        base_price = 5
-        total = (1 + self.tax) * self.qty * base_price
+    #     base_price = 5
+    #     total = (1 + self.tax) * self.qty * base_price
 
-        return total
+    #     return total
 
     def mark_shipped(self):
         """Record the fact than an order has been shipped."""
