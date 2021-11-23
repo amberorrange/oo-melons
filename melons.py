@@ -42,6 +42,8 @@ class DomesticMelonOrder(AbstractMelonOrder):
         base_price = 5
         total = (1 + self.tax) * self.qty * base_price
 
+        
+
         return total
         
       
